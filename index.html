@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <h1 class="app-title">Word Counter</h1>
+      </header>
+
+      <main class="app-main" aria-label="Word counter">
+        <section class="card" aria-labelledby="input-label">
+          <div class="card-header">
+            <h2 id="input-label">Your Text</h2>
+            <div class="card-header-actions">
+              <button type="button" id="clear-btn" class="btn btn-ghost">Clear</button>
+            </div>
+          </div>
+          <label class="visually-hidden" for="text-input">Enter or paste text to count words</label>
+          <textarea
+            id="text-input"
+            class="text-input"
+            placeholder="Start typing or paste any paragraph here..."
+            spellcheck="true"
+          ></textarea>
+        </section>
+
+        <section class="card card-metrics" aria-label="Word count">
+          <div class="metric">
+            <span class="metric-label">Words</span>
+            <span id="word-count" class="metric-value">0</span>
+          </div>
+          <div class="metric metric-secondary">
+            <span class="metric-label">Characters</span>
+            <span id="char-count" class="metric-value">0</span>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p class="footer-text">Built with pure HTML, CSS, and JavaScript.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

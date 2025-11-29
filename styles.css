@@ -1,0 +1,312 @@
+:root {
+  --bg: #050508;
+  --bg-elevated: #101019;
+  --bg-elevated-soft: #151526;
+  --accent: #7b5cff;
+  --accent-soft: rgba(123, 92, 255, 0.18);
+  --accent-strong: rgba(123, 92, 255, 0.45);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --text-primary: #f8f7ff;
+  --text-muted: #a0a0c2;
+  --text-softer: #7a7a9b;
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --transition-fast: 160ms ease-out;
+  --transition-med: 220ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #15152a 0, #050508 55%, #000 100%);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 960px;
+  margin: 1.75rem;
+  padding: 1.75rem 1.75rem 1.5rem;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(123, 92, 255, 0.12), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(36, 198, 220, 0.1), transparent 55%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.app-title {
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  letter-spacing: 0.02em;
+  font-weight: 620;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-title::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #7b5cff 55%, #272748 100%);
+  box-shadow: 0 0 12px rgba(123, 92, 255, 0.9);
+}
+
+.app-subtitle {
+  margin: 0;
+  max-width: 520px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.card {
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 60%),
+    radial-gradient(circle at bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95));
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: 1.1rem 1.15rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(22px) saturate(140%);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 580;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-softer);
+}
+
+.card-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: var(--text-softer);
+  padding: 0.1rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 15, 30, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.btn {
+  font-size: 0.78rem;
+  line-height: 1.2;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-muted);
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-ghost {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 22, 0.9);
+}
+
+.btn-ghost:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-strong);
+  color: var(--text-primary);
+  transform: translateY(-0.5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.75);
+}
+
+.btn-ghost:focus-visible {
+  outline: none;
+  border-color: var(--accent-strong);
+  box-shadow:
+    0 0 0 1px var(--accent-strong),
+    0 0 0 1px rgba(0, 0, 0, 0.9),
+    0 10px 26px rgba(10, 10, 25, 0.9);
+}
+
+.text-input {
+  width: 100%;
+  min-height: min(220px, 45vh);
+  max-height: 60vh;
+  resize: vertical;
+  padding: 0.85rem 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03), rgba(5, 5, 10, 0.96));
+  color: var(--text-primary);
+  font: 0.92rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.85);
+  transition: border-color var(--transition-med),
+    box-shadow var(--transition-med),
+    background var(--transition-med),
+    transform var(--transition-fast);
+}
+
+.text-input::placeholder {
+  color: rgba(160, 160, 194, 0.7);
+}
+
+.text-input:focus-visible {
+  border-color: var(--accent-strong);
+  box-shadow:
+    0 0 0 1px var(--accent-strong),
+    0 0 0 1px rgba(0, 0, 0, 0.9),
+    0 12px 32px rgba(10, 10, 25, 0.9);
+  background: radial-gradient(circle at top, rgba(123, 92, 255, 0.1), rgba(5, 5, 12, 0.96));
+  transform: translateY(-1px);
+}
+
+.card-metrics {
+  display: flex;
+  flex-direction: column; /* desktop: stack word + character vertically */
+  align-items: stretch;
+  gap: 0.6rem;
+}
+
+.metric {
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: radial-gradient(circle at top left, var(--accent-soft), rgba(10, 10, 24, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-height: 76px;
+  flex: 1 1 0;
+  transition: background var(--transition-med), border-color var(--transition-med), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.metric-secondary {
+  background: radial-gradient(circle at top left, rgba(36, 198, 220, 0.08), rgba(8, 8, 22, 0.96));
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-softer);
+}
+
+.metric-value {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.9rem;
+  font-weight: 640;
+  align-self: flex-start;
+}
+
+.metric:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+}
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.3rem;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-softer);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  body {
+    align-items: stretch;
+  }
+
+  .app-shell {
+    margin: 0.9rem;
+    border-radius: 22px;
+  }
+
+  .app-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card-metrics {
+    order: -1;             /* move metrics above text on phone */
+    flex-direction: row;   /* phone: word + character side by side */
+  }
+
+  .metric {
+    min-height: 68px;
+  }
+
+  .app-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
